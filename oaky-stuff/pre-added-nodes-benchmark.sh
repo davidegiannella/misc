@@ -10,9 +10,6 @@ set -e
 # ./benchmark.sh oak-run-*.jar 
 
 TESTS="OrderedIndexInsertNoIndexTest OrderedIndexInsertStandardPropertyTest OrderedIndexInsertOrderedPropertyTest"
-FIXTURES=Oak-Tar
-RUNTIME=60
-WARMUP=30
 NOW=`date +%Y%m%d%H%M%S`
 LOG="./benchmark-${NOW}.log"
 
@@ -30,12 +27,5 @@ fi
 for nodes in ${NODES_ITERATION}
 do
     echo "Nodes per iteration: ${nodes}" | tee -a $LOG
-	java -Xmx2048m -Dprofile=false -Druntime=${RUNTIME} -Dwarmup=${WARMUP} \
-	    -Dlogback.configurationFile=logback-benchmark.xml \
-        -DpreAddedNodes=${nodes} \
-        -DnodesPerIteration=100 \
-        -jar ${OAK_JAR} benchmark \
-	    --concurrency 1 --runAsAdmin false --report false --randomUser true \
-	    $TESTS \
-	    $FIXTURES | tee -a $LOG
+    ./atomic-benchmark.sh $OAK_JAR "$TESTS" $LOG $nodes 100
 done
