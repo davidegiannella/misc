@@ -9,7 +9,7 @@ set -e
 #
 # ./benchmark.sh oak-run-*.jar 
 
-TESTS="NoIndexesOrderByInsertTest StandardPropertyIndexOrderByInsertTest OrderedPropertyIndexOrderByInsertTest"
+TESTS="OrderedIndexInsertNoIndexTest OrderedIndexInsertStandardPropertyTest OrderedIndexInsertOrderedPropertyTest"
 FIXTURES=Oak-Tar
 RUNTIME=60
 WARMUP=30
