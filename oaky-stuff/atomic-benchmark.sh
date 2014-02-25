@@ -57,6 +57,7 @@ fi
 
 java -Xmx2048m -Dprofile=false -Druntime=${RUNTIME} -Dwarmup=${WARMUP} \
    -Dlogback.configurationFile=logback-benchmark.xml \
+   -Doak.queryLimitInMemory=100000 \
    $PRE_ADDED_NODES \
    $NODES_PER_ITERATION \
    -jar ${OAK_JAR} benchmark \
