@@ -16,6 +16,7 @@
  */
 
 import org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexDescendingQueryTest;
+import org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexEditorTest;
 import org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexQueryTest;
 import org.apache.jackrabbit.oak.plugins.index.property.strategy.OrderedContentMirrorStorageStrategyTest;
 import org.junit.runner.RunWith;
@@ -25,7 +26,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
     OrderedContentMirrorStorageStrategyTest.class,
     OrderedPropertyIndexQueryTest.class,
-    OrderedPropertyIndexDescendingQueryTest.class
+    OrderedPropertyIndexDescendingQueryTest.class,
+    OrderedPropertyIndexEditorTest.class
 })
 public class OrderedIndexAllTests {
 
