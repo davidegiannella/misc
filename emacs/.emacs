@@ -13,6 +13,9 @@
 ;;disable line wrapping
 (setq-default truncate-lines t)
 
+;;always show the column number
+(setq-default column-number-mode t)
+
 ;;disable autosave and backup
 (setq auto-save-default nil)
 (setq make-backup-files nil)
@@ -85,4 +88,3 @@
 ;; ;; ;;python-mode
 ;; ;; (require 'python-mode)
 ;; ;; (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
-
