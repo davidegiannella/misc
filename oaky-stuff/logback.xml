@@ -37,7 +37,7 @@
   <!-- Display info messages from the benchmark suite -->
   <logger name="org.apache.jackrabbit.oak.benchmark" level="INFO"/>
   
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property" level="WARN"/>
+  <logger name="org.apache.jackrabbit.oak.plugins.index.property" level="DEBUG"/>
   <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexEditor" level="ERROR"/>
 
   <root level="warn">
