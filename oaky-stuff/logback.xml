@@ -36,9 +36,12 @@
 
   <!-- Display info messages from the benchmark suite -->
   <logger name="org.apache.jackrabbit.oak.benchmark" level="INFO"/>
+
+  <logger name="org.apache.jackrabbit.oak.query" level="INFO"/>
   
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexEditor" level="ERROR"/>
+  <logger name="org.apache.jackrabbit.oak.plugins.index.property" level="ERROR"/>
+  <logger name="org.apache.jackrabbit.oak.plugins.index.property.strategy" level="DEBUG"/>
+  <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexEditor" level="DEBUG"/>
 
   <root level="warn">
     <appender-ref ref="STDOUT" />
