@@ -10,10 +10,13 @@ set -e
 # ./benchmark.sh oak-run-*.jar 
 
 TESTS="OrderedIndexInsertNoIndexTest OrderedIndexInsertStandardPropertyTest OrderedIndexInsertOrderedPropertyTest"
+#TESTS="OrderedIndexInsertNoIndexTest OrderedIndexInsertStandardPropertyTest"
 NOW=`date +%Y%m%d%H%M%S`
 LOG="./benchmark-${NOW}.log"
 
-NODES_ITERATION="100 200 300 400 500 600 700 800 900 1000"
+#NODES_ITERATION="100 200 300 400 500 600 700 800 900 1000 10000"
+NODES_ITERATION="100 200 300 400 500 600 700 800 900 1000 10000 50000 100000"
+#NODES_ITERATION="50000 100000"
 OAK_JAR=oak-run-*.jar
 
 if [ -z "$1" ] 
