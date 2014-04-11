@@ -16,12 +16,15 @@
  */
 package org.apache.jackrabbit.oak;
 
+import org.apache.jackrabbit.oak.jcr.OrderedIndexConcurrentClusterIT;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    OrderedIndexAllTests.class
+    OrderedIndexAllTests.class,
+    OrderedIndexConcurrentClusterIT.class,
+//    ConcurrentAddNodesClusterIT.class,
 })
 
 public class OrderedIndexSlowTests {
