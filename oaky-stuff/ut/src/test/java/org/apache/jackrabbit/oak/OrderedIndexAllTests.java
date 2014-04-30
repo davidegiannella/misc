@@ -16,6 +16,7 @@ package org.apache.jackrabbit.oak;
  * limitations under the License.
  */
 
+import org.apache.jackrabbit.oak.jcr.query.QueryTest;
 import org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexDescendingQueryTest;
 import org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexEditorTest;
 import org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexQueryTest;
@@ -28,7 +29,8 @@ import org.junit.runners.Suite;
     OrderedContentMirrorStorageStrategyTest.class,
     OrderedPropertyIndexQueryTest.class,
     OrderedPropertyIndexDescendingQueryTest.class,
-    OrderedPropertyIndexEditorTest.class
+    OrderedPropertyIndexEditorTest.class,
+    QueryTest.class,
 })
 public class OrderedIndexAllTests {
 
