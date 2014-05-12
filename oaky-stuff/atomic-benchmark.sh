@@ -55,13 +55,17 @@ then
     WARMUP=$7
 fi
 
-java -Xmx2048m -Dprofile=false -Druntime=${RUNTIME} -Dwarmup=${WARMUP} \
-   -Dlogback.configurationFile=logback-benchmark.xml \
-   -Doak.queryLimitInMemory=100000 \
-   $PRE_ADDED_NODES \
-   $NODES_PER_ITERATION \
-   -jar ${OAK_JAR} benchmark \
-   --concurrency 1 --runAsAdmin false --report false --randomUser true \
-   $TESTS \
-   $FIXTURES | tee -a $LOG
+CMD="java -Xmx2048m -Dprofile=false -Druntime=${RUNTIME} -Dwarmup=${WARMUP}"
+   CMD="${CMD} -Dlogback.configurationFile=logback-benchmark.xml"
+   CMD="${CMD} -Doak.queryLimitInMemory=100000"
+   CMD="${CMD} $PRE_ADDED_NODES"
+   CMD="${CMD} $NODES_PER_ITERATION"
+   CMD="${CMD} -jar ${OAK_JAR} benchmark"
+   CMD="${CMD} --concurrency 1 --runAsAdmin false --report false --randomUser true"
+   CMD="${CMD} $TESTS"
+   CMD="${CMD} $FIXTURES"
+   
+echo "Running: $CMD | tee -a $LOG" | tee -a $LOG
+$CMD | tee -a $LOG
+
    
