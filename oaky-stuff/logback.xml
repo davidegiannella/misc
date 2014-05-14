@@ -65,7 +65,7 @@
   <logger name="org.apache.jackrabbit.oak.plugins.index.property.strategy.OrderedContentMirrorStoreStrategy" level="DEBUG"/>
   <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexQueryTest" level="DEBUG"/>
   <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexDescendingQueryTest" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.scalability.ScalabilityBlobSearchSuite" level="DEBUG"/>
+  <logger name="org.apache.jackrabbit.oak.scalability.SearchScalabilityBenchmark" level="DEBUG"/>
  -->  
 
   <logger name="org.apache.jackrabbit.oak.jcr.OrderedIndexConcurrentClusterIT" level="DEBUG"/>
