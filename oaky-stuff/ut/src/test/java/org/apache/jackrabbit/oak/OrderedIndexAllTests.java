@@ -23,6 +23,7 @@ import org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexEdit
 import org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexEditorV2Test;
 import org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexQueryTest;
 import org.apache.jackrabbit.oak.plugins.index.property.strategy.OrderedContentMirrorStorageStrategyTest;
+import org.apache.jackrabbit.oak.plugins.index.property.strategy.SplitRulesTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -35,6 +36,7 @@ import org.junit.runners.Suite;
     QueryTest.class,
     OrderedPropertyIndexEditorV2Test.class,
     OrderedPropertyIndexEditorProviderTest.class,
+    SplitRulesTest.class,
 })
 public class OrderedIndexAllTests {
 
