@@ -57,25 +57,26 @@
   <!-- Display info messages from the benchmark suite -->
   <logger name="org.apache.jackrabbit.oak.benchmark" level="INFO"/>
   <logger name="org.apache.jackrabbit.oak.plugins.document.DocumentNodeStore" level="ERROR"/>
-  <logger name="org.apache.jackrabbit.oak.query" level="INFO"/>
+  <logger name="org.apache.jackrabbit.oak.query" level="ERROR"/>
   
 <!--   
+  <logger name="org.apache.jackrabbit.oak.plugins.index.property" level="DEBUG"/>
   <logger name="org.apache.jackrabbit.oak.plugins.index.property" level="ERROR"/>
   <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndex" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.strategy.OrderedContentMirrorStoreStrategy" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexQueryTest" level="DEBUG"/>
   <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexDescendingQueryTest" level="DEBUG"/>
+  <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexQueryTest" level="DEBUG"/>
+  <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexQueryTest" level="DEBUG"/>
+  <logger name="org.apache.jackrabbit.oak.plugins.index.property.strategy.OrderedContentMirrorStorageStrategyTest" level="DEBUG"/>
+  <logger name="org.apache.jackrabbit.oak.plugins.index.property.strategy.OrderedContentMirrorStoreStrategy" level="DEBUG"/>
   <logger name="org.apache.jackrabbit.oak.scalability.SearchScalabilityBenchmark" level="DEBUG"/>
+  <logger name="org.apache.jackrabbit.oak.plugins.index.property.strategy.SplitStrategy" level="DEBUG"/>
  -->  
 
   <logger name="org.apache.jackrabbit.oak.jcr.OrderedIndexConcurrentClusterIT" level="DEBUG"/>
   <logger name="org.apache.jackrabbit.oak.jcr.NodesWorker" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.commit.OrderedIndexConflictHandler" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedIndexMerger" level="DEBUG"/>
   
   <root level="warn">
     <appender-ref ref="STDOUT" />
     <appender-ref ref="FILE" />
   </root>
-
 </configuration>
