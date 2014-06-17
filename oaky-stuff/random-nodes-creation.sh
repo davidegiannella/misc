@@ -19,6 +19,6 @@ do
 	author=${AUTHORS[${pos}]}
 	
     json="{\"jcr:primaryType\":\"oak:Unstructured\",\"jcr:lastModified\":\"${dt}\",\"author\":\"${author}\"}"
-    #json="{\"author\":\"${author}\"}"
-		curl -u admin:admin -H "Content-Type: application/json" -X POST -d "${json}" http://localhost:8080/content/$nodename
+    echo "posting json: $json"
+	curl -u admin:admin -H "Content-Type: application/json" -X POST -d "${json}" http://localhost:8080/content/$nodename
 done
