@@ -1,0 +1,11 @@
+# List of packages to be ignored when computing the number of occurrences. The package is specified
+# in a regular expression flavour
+# Lines beginning with '#' will be ignored
+#
+# Ensure the last line has a line terminator or it will be excluded from the analysis.
+
+com.sun
+^sun\.*
+^java\.*
+org.eclipse.jetty
+EDU.oswego org.apache.felix org.apache.sling
