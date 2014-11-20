@@ -83,6 +83,13 @@ then
     sort $TMP1 | uniq -c | sort -rn | head -n $TOP > $TMP2
     printFileCode $TMP2
     
+    echo
+    echo "## Thread status"
+    echo
+    emptyTmp
+    grep java.lang.Thread.State ~/tmp/tds.log | sed 's/^[[:space:]]*\(.*\)$/\1/' | sort | uniq -c > $TMP1
+    printFileCode $TMP1
+    
     cleanup
 else
     echo
