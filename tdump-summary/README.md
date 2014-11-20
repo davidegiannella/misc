@@ -13,6 +13,7 @@ _Feel free to ask or provide any new feature and/or bug fixing._
 
 1. Download the shell script and the exclusion txt file
 2. Give the shell script execution permission
+
         chmod 777 tdump-summary.sh
 
 ## Usage
