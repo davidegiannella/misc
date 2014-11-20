@@ -8,4 +8,6 @@ com.sun
 ^sun\.*
 ^java\.*
 org.eclipse.jetty
-EDU.oswego org.apache.felix org.apache.sling
+EDU.oswego
+org.apache.felix
+org.apache.sling
