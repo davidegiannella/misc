@@ -87,9 +87,9 @@ then
     echo "## Thread status"
     echo
     emptyTmp
-    grep java.lang.Thread.State ~/tmp/tds.log | sed 's/^[[:space:]]*\(.*\)$/\1/' | sort | uniq -c > $TMP1
+    grep java.lang.Thread.State $TD | sed 's/^[[:space:]]*\(.*\)$/\1/' | sort | uniq -c > $TMP1
     printFileCode $TMP1
-    
+        
     cleanup
 else
     echo
