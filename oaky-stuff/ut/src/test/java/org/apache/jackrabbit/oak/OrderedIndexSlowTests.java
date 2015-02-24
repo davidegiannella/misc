@@ -17,6 +17,7 @@
 package org.apache.jackrabbit.oak;
 
 import org.apache.jackrabbit.oak.jcr.OrderedIndexConcurrentClusterIT;
+import org.apache.jackrabbit.oak.jcr.OrderedIndexIT;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -24,7 +25,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
     OrderedIndexAllTests.class,
     OrderedIndexConcurrentClusterIT.class,
-//    ConcurrentAddNodesClusterIT.class,
+    OrderedIndexIT.class
 })
 
 public class OrderedIndexSlowTests {
