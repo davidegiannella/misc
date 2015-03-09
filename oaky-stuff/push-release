@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+VERSION=$1
+
+if [ -z "${VERSION}" ]
+then
+  echo "provide the oak version"
+  echo "push-release 1.1.7"
+  exit 1
+else
+    echo "pushing ${VERSION}"
+    svn move -m "Apache Jackrabbit Oak {$VERSION}" \
+      https://dist.apache.org/repos/dist/dev/jackrabbit/oak/$VERSION \
+      https://dist.apache.org/repos/dist/release/jackrabbit/oak/$VERSION  
+fi
