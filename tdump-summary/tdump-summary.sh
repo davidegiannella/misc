@@ -10,6 +10,7 @@ TD=$1
 BN=`basename $0`
 TMP1=`mktemp -t $BN`
 TMP2=`mktemp -t $BN`
+ARGS="$@"
 
 # Ignoring packages file
 IGNORE_PKG="pkg-ignore.txt"
@@ -19,6 +20,7 @@ TOP=50
 
 COMMENT_LINE_REGEX='^[:space:]*#.*'
 EMPTY_LINE_REGEX='^[:space:]*$'
+THREAD_LINE_REGEX='^\"(.*)\"'
 
 ##
 # print $1 as a code block in MarkDown syntax
@@ -44,6 +46,48 @@ function cleanup {
 # print the provided file in $1 as code for Markdown Syntax
 function printFileCode {
     awk '{ print "    "$0 }' $1
+}
+
+
+##
+# to be used straght in ifs: if hasOption "-myopt" ; then ...
+#
+# makes use of the global env variable ARGS
+#
+# $1 is the option to look for.
+# return true (0) if the command line contains the provided function. false (1) otherwise.
+function hasOption {
+    for a in $ARGS
+    do
+        if [ "$a" = "$1" ]
+        then
+            return 0
+        fi
+    done
+	return 1
+}
+
+##
+# retrieve an option value passed in the form of -option <value>. Makes use of global variable ARGS.
+# 
+# $1 the option to be looked for
+# return the next argument as value of empty if not found
+function getOptionValue {
+    isNext=1
+    for a in $ARGS
+    do
+        if [ "$a" = "$1" ] 
+        then
+           isNext=0
+           continue
+        fi
+        if [ $isNext -eq 0 ] 
+        then
+            echo $a
+            return
+        fi
+    done
+    echo ""
 }
 
 if [ -f "$TD" ]
@@ -90,6 +134,34 @@ then
     grep java.lang.Thread.State $TD | sed 's/^[[:space:]]*\(.*\)$/\1/' | sort | uniq -c > $TMP1
     printFileCode $TMP1
         
+      
+    # if we have "-c" on the command line we want to know in which threads a specific class occurs  
+    if hasOption "-c"
+    then
+        lookfor=`getOptionValue "-c"`
+        
+        echo
+        echo "## Specific class lookup"
+        echo
+        echo "_${lookfor} found in threads_"
+        echo
+        currentThread=""
+        alreadyProcessed=1
+        while read -r line ; do
+            if [[ $line =~ $THREAD_LINE_REGEX ]]
+            then
+                currentThread=$line
+                alreadyProcessed=1
+            else
+                if [[ $line =~ .*${lookfor}.* && $alreadyProcessed -eq 1 ]]
+                then
+                    printCode $currentThread
+                    alreadyProcessed=0
+                fi
+            fi
+        done <"$TD"
+    fi
+    
     cleanup
 else
     echo
