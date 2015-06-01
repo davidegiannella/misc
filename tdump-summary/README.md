@@ -23,7 +23,7 @@ _Feel free to ask or provide any new feature and/or bug fixing._
 ### Specific class lookup
 
 It's possible to lookup where a specific class occur within the thread
-dumps by providing the {{-c <class>}} option
+dumps by providing the `-c <class>` option
 
     ./tdump-summary.sh <path-to-tdump> -c <class-to-lookfor>
 
