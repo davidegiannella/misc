@@ -10,7 +10,7 @@ then
   exit 1
 else
     echo "pushing ${VERSION}"
-    svn move -m "Apache Jackrabbit Oak {$VERSION}" \
+    svn move -m "Apache Jackrabbit Oak ${VERSION}" \
       https://dist.apache.org/repos/dist/dev/jackrabbit/oak/$VERSION \
       https://dist.apache.org/repos/dist/release/jackrabbit/oak/$VERSION  
 fi
