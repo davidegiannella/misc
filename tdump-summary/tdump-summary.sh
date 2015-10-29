@@ -16,7 +16,7 @@ ARGS="$@"
 IGNORE_PKG="pkg-ignore.txt"
 
 # Number of lines for filtering with head command
-TOP=50
+TOP=100
 
 COMMENT_LINE_REGEX='^[:space:]*#.*'
 EMPTY_LINE_REGEX='^[:space:]*$'
@@ -100,6 +100,12 @@ then
     num=`grep -c '^Full thread dump' $TD`
     printCode $num
 
+    echo
+    echo "## Thread dumps snapshot times"
+    emptyTmp
+    grep -B1 '^Full thread dump' $TD | grep -v '\-\-' | grep -v '^Full thread dump' > $TMP1
+    printFileCode $TMP1
+    
     echo
     echo "## Top $TOP classes"
     emptyTmp    
