@@ -4,7 +4,7 @@ set -e
 # generates a report in MarkDown format with an overall view of the provided thread dump.
 #
 # Usage:
-#   ./tdump-summary.sh <path-to-tdump-file>
+#   Run without any parameter for a on-screen help
 
 TD=$1
 BN=`basename $0`
@@ -172,7 +172,7 @@ then
 else
     echo
     echo "Please provide path to the tdump file"
-    echo "./tdump-summary.sh <path-to-tdump-file>"
+    echo "./tdump-summary.sh <path-to-tdump-file> [-c <specific-class-lookup>]"
     
     cleanup
     
