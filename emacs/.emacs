@@ -28,7 +28,7 @@
 (setq text-mode-hook '(lambda()
 (auto-fill-mode t) ;;physical line break
 (flyspell-mode t) ;;spellchek on the fly
-;;(ispell-change-dictionary "italiano" nil)
+(ispell-change-dictionary "english" nil)
 )
 )
 
@@ -62,6 +62,7 @@
 (setq markdown-mode-hook '(lambda()
                             (auto-fill-mode t) 
                             (flyspell-mode t) ;;spellchek on the fly
+                            (ispell-change-dictionary "english" nil)
                             )
       )
 
@@ -88,3 +89,6 @@
 ;; ;; ;;python-mode
 ;; ;; (require 'python-mode)
 ;; ;; (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+
+;; set alternative keys (math symbols etc)
+(define-key key-translation-map (kbd "M-V") (kbd "√"))
