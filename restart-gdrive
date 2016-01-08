@@ -27,17 +27,38 @@
 set -e
 
 APP="/Applications/Google Drive.app"
+TIMEOUT=30
+
+function waitForQuit() {
+    start=`date +%s`
+    while ps -ef | grep "$pid" | grep -v 'grep' > /dev/null && [ $((`date +%s` - $start)) -lt $TIMEOUT ] ; do
+        echo -n .
+        sleep 5
+    done
+}
 
 pid=`ps -ef | grep "$APP" | grep -v 'grep' | awk '{print $2}'`
 if [ ! -z "$pid" ]
 then
-    echo "Killing ${pid}"
+    echo "Quitting ${pid}"
     kill $pid
-    while ps -ef | grep "$pid" | grep -v 'grep' > /dev/null ; do
-        echo -n .
-        sleep 5
-    done
-    echo "Process ${pid} killed."
+    waitForQuit
+    if ps -ef | grep "$pid" | grep -v 'grep' > /dev/null ;
+    then
+        echo
+        echo "Process still there. Timed out. Kill -9 now"
+        kill -9 ${pid}
+        waitForQuit
+        if ps -ef | grep "$pid" | grep -v 'grep' > /dev/null ;
+        then
+            echo
+            echo "Process still there. Something went wrong"
+            exit 1
+        fi
+    else
+        echo
+        echo "Process ${pid} quit."
+    fi
 fi
 
 echo "Starting $APP"
