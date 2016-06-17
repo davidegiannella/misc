@@ -28,12 +28,13 @@ set -e
 
 APP="/Applications/Google Drive.app"
 TIMEOUT=30
+WAIT=1
 
 function waitForQuit() {
     start=`date +%s`
     while ps -ef | grep "$pid" | grep -v 'grep' > /dev/null && [ $((`date +%s` - $start)) -lt $TIMEOUT ] ; do
         echo -n .
-        sleep 5
+        sleep $WAIT
     done
 }
 
