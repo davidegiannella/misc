@@ -22,12 +22,13 @@ then
 fi
 
 mkdir ${CHECKOUT_DIR}
-echo "Checking out Oak 1.4.7"
+echo "Checking out Oak ${VERSION}"
 svn co -q https://svn.apache.org/repos/asf/jackrabbit/oak/tags/jackrabbit-oak-${VERSION}/oak-parent ./${CHECKOUT_DIR}/oak-parent
 
 echo "Dependencies..."
 grep "jackrabbit.version" ./${CHECKOUT_DIR}/oak-parent/pom.xml
 grep "lucene.version" ./${CHECKOUT_DIR}/oak-parent/pom.xml
+grep "segment.tar.version" ./${CHECKOUT_DIR}/oak-parent/pom.xml
 
 echo "Deleting checkout dir"
 rm -rf ${CHECKOUT_DIR}
