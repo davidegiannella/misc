@@ -29,6 +29,7 @@ echo "Dependencies..."
 grep "jackrabbit.version" ./${CHECKOUT_DIR}/oak-parent/pom.xml
 grep "lucene.version" ./${CHECKOUT_DIR}/oak-parent/pom.xml
 grep "segment.tar.version" ./${CHECKOUT_DIR}/oak-parent/pom.xml
+grep "h2.version" ./${CHECKOUT_DIR}/oak-parent/pom.xml
 commonsmath=`grep "math3" -A 2 ./${CHECKOUT_DIR}/oak-parent/pom.xml | sed 'N; s/.*<version>\([^<]*\).*/\1/g'`
 echo "    <commons.math>${commonsmath}<commons.math>"
 
