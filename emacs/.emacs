@@ -1,3 +1,6 @@
+;;shell vs gui paths
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+
 ;;adding local directory for modes loading
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
