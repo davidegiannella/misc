@@ -33,6 +33,6 @@ fi
 
 echo "Backing up from '${SOURCE}' to '${DEST}' at ${DT}" | tee -a ${LOG}
 
-rsync -rtDv --delete ${SOURCE} ${DEST} 2>&1 | tee -a ${LOG}
+rsync -rtDv --delete --exclude "S.gpg-agent" ${SOURCE} ${DEST} 2>&1 | tee -a ${LOG}
 
 echo "Done. Logs on '${LOG}'"
