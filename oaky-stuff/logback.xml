@@ -34,15 +34,12 @@
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>${user.home}/tmp/logs/oak.log</file>
     
-    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-      <fileNamePattern>${user.home}/tmp/logs/oak.%i.log</fileNamePattern>
-      <minIndex>1</minIndex>
-      <maxIndex>10</maxIndex>
-    </rollingPolicy>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>${user.home}/tmp/logs/oak.%d.log.gz</fileNamePattern>
 
-    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-      <maxFileSize>10MB</maxFileSize>
-    </triggeringPolicy>
+      <maxHistory>365</maxHistory>
+    </rollingPolicy>
 
     <encoder>
       <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
@@ -57,24 +54,21 @@
   <!-- Display info messages from the benchmark suite -->
   <logger name="org.apache.jackrabbit.oak.benchmark" level="INFO"/>
   <logger name="org.apache.jackrabbit.oak.plugins.document.DocumentNodeStore" level="ERROR"/>
-  <logger name="org.apache.jackrabbit.oak.query" level="ERROR"/>
-  
-<!--   
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property" level="ERROR"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndex" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexDescendingQueryTest" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexQueryTest" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexQueryTest" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.strategy.OrderedContentMirrorStorageStrategyTest" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.strategy.OrderedContentMirrorStoreStrategy" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.scalability.SearchScalabilityBenchmark" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.plugins.index.property.strategy.SplitStrategy" level="DEBUG"/>
- -->  
+  <!-- <logger name="org.apache.jackrabbit.oak.query" level="ERROR"/> -->
 
-  <logger name="org.apache.jackrabbit.oak.jcr.OrderedIndexConcurrentClusterIT" level="DEBUG"/>
-  <logger name="org.apache.jackrabbit.oak.jcr.NodesWorker" level="DEBUG"/>
-  
+<!-- 
+
+    <logger name="org.apache.jackrabbit.oak.query" level="TRACE" />
+    <logger name="org.apache.jackrabbit.core.query.AbstractQueryTest" level="TRACE" />
+    <logger name="org.apache.jackrabbit.oak.plugins.index.lucene.LuceneIndex" level="TRACE" />
+  <logger name="org.apache.jackrabbit.oak.plugins.atomic" level="TRACE" />
+  <logger name="org.apache.jackrabbit.oak.jcr.AtomicCounterClusterIT" level="DEBUG" />
+  <logger name="org.apache.jackrabbit.oak.plugins.document.DocumentNodeStoreBranch" level="DEBUG" />
+  <logger name="org.apache.jackrabbit.oak.plugins.document.Collision" level="DEBUG" />
+
+ -->
+  <logger name="org.apache.jackrabbit.oak.query" level="DEBUG" />  
+      
   <root level="warn">
     <appender-ref ref="STDOUT" />
     <appender-ref ref="FILE" />
