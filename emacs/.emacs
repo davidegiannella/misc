@@ -95,3 +95,9 @@
 
 ;; set alternative keys (math symbols etc)
 (define-key key-translation-map (kbd "M-V") (kbd "√"))
+
+;; docker-mode
+;; https://github.com/spotify/dockerfile-mode
+(add-to-list 'load-path "dockerfile-mode")
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
